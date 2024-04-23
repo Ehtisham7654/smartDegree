@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SmartDegreeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblAdmin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblDegree">
+    <Key>
+      <PropertyRef Name="Deg_ID" />
+    </Key>
+    <Property Name="Deg_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Deg_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Duration" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fee" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Uni_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUni">
+    <Key>
+      <PropertyRef Name="Uni_ID" />
+    </Key>
+    <Property Name="Uni_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Uni_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Campus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="No_Of_Dept" Type="Int32" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="SmartDegreeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblAdmins" EntityType="Self.tblAdmin" />
+    <EntitySet Name="tblDegrees" EntityType="Self.tblDegree" />
+    <EntitySet Name="tblUnis" EntityType="Self.tblUni" />
+    <FunctionImport Name="AdminLogin" ReturnType="Collection(SmartDegreeModel.AdminLogin_Result)">
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tblSignUps" EntityType="SmartDegreeModel.tblSignUp" />
+    <FunctionImport Name="GoUniID" ReturnType="Collection(SmartDegreeModel.GoUniID_Result)">
+      <Parameter Name="ID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteDeg">
+      <Parameter Name="D_ID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteUni">
+      <Parameter Name="U_ID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetUni" ReturnType="Collection(SmartDegreeModel.GetUni_Result)" />
+    <FunctionImport Name="GetDeg" ReturnType="Collection(SmartDegreeModel.GetDeg_Result)" />
+  </EntityContainer>
+  <ComplexType Name="AdminLogin_Result">
+    <Property Type="String" Name="AdminID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <EntityType Name="tblSignUp">
+    <Key>
+      <PropertyRef Name="User_Name" />
+    </Key>
+    <Property Name="Full_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="User_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="GoUniID_Result">
+    <Property Type="String" Name="Uni_ID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Uni_Name" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Campus" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="No_Of_Dept" Nullable="false" />
+    <Property Type="String" Name="Location" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetUni_Result">
+    <Property Type="String" Name="Uni_ID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Uni_Name" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Campus" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="No_Of_Dept" Nullable="false" />
+    <Property Type="String" Name="Location" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetDeg_Result">
+    <Property Type="String" Name="Deg_ID" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Deg_Name" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Duration" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="Fee" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Uni_Name" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="500" />
+  </ComplexType>
+</Schema>

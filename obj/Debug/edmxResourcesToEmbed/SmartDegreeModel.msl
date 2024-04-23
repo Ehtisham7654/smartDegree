@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SmartDegreeModelStoreContainer" CdmEntityContainer="SmartDegreeEntities">
+    <EntitySetMapping Name="tblAdmins">
+      <EntityTypeMapping TypeName="SmartDegreeModel.tblAdmin">
+        <MappingFragment StoreEntitySet="tblAdmin">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDegrees">
+      <EntityTypeMapping TypeName="SmartDegreeModel.tblDegree">
+        <MappingFragment StoreEntitySet="tblDegree">
+          <ScalarProperty Name="Deg_ID" ColumnName="Deg_ID" />
+          <ScalarProperty Name="Deg_Name" ColumnName="Deg_Name" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+          <ScalarProperty Name="Uni_Name" ColumnName="Uni_Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUnis">
+      <EntityTypeMapping TypeName="SmartDegreeModel.tblUni">
+        <MappingFragment StoreEntitySet="tblUni">
+          <ScalarProperty Name="Uni_ID" ColumnName="Uni_ID" />
+          <ScalarProperty Name="Uni_Name" ColumnName="Uni_Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Campus" ColumnName="Campus" />
+          <ScalarProperty Name="No_Of_Dept" ColumnName="No_Of_Dept" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AdminLogin" FunctionName="SmartDegreeModel.Store.AdminLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartDegreeModel.AdminLogin_Result">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tblSignUps">
+      <EntityTypeMapping TypeName="SmartDegreeModel.tblSignUp">
+        <MappingFragment StoreEntitySet="tblSignUp">
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteDeg" FunctionName="SmartDegreeModel.Store.DeleteDeg" />
+    <FunctionImportMapping FunctionImportName="DeleteUni" FunctionName="SmartDegreeModel.Store.DeleteUni" />
+    <FunctionImportMapping FunctionImportName="GetUni" FunctionName="SmartDegreeModel.Store.GetUni">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartDegreeModel.GetUni_Result">
+          <ScalarProperty Name="Uni_ID" ColumnName="Uni_ID" />
+          <ScalarProperty Name="Uni_Name" ColumnName="Uni_Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Campus" ColumnName="Campus" />
+          <ScalarProperty Name="No_Of_Dept" ColumnName="No_Of_Dept" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetDeg" FunctionName="SmartDegreeModel.Store.GetDeg">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartDegreeModel.GetDeg_Result">
+          <ScalarProperty Name="Deg_ID" ColumnName="Deg_ID" />
+          <ScalarProperty Name="Deg_Name" ColumnName="Deg_Name" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+          <ScalarProperty Name="Uni_Name" ColumnName="Uni_Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

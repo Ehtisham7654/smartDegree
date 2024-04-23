@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SmartDegreeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblAdmin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblDegree">
+    <Key>
+      <PropertyRef Name="Deg_ID" />
+    </Key>
+    <Property Name="Deg_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Deg_Name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Department" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Duration" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Fee" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Uni_Name" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblSignUp">
+    <Key>
+      <PropertyRef Name="User_Name" />
+    </Key>
+    <Property Name="Full_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="User_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUni">
+    <Key>
+      <PropertyRef Name="Uni_ID" />
+    </Key>
+    <Property Name="Uni_ID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Uni_Name" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Campus" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="No_Of_Dept" Type="int" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Function Name="AdminLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteDeg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="D_ID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteUni" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="U_ID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetDeg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetUni" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="SmartDegreeModelStoreContainer">
+    <EntitySet Name="tblAdmin" EntityType="Self.tblAdmin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDegree" EntityType="Self.tblDegree" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSignUp" EntityType="Self.tblSignUp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUni" EntityType="Self.tblUni" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
