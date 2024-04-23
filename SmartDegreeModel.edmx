@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SmartDegreeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAdmin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDegree">
+          <Key>
+            <PropertyRef Name="Deg_ID" />
+          </Key>
+          <Property Name="Deg_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Deg_Name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Department" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Duration" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Fee" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Uni_Name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblSignUp">
+          <Key>
+            <PropertyRef Name="User_Name" />
+          </Key>
+          <Property Name="Full_Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="User_Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblUni">
+          <Key>
+            <PropertyRef Name="Uni_ID" />
+          </Key>
+          <Property Name="Uni_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Uni_Name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Campus" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="No_Of_Dept" Type="int" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Function Name="AdminLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DeleteDeg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="D_ID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DeleteUni" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="U_ID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetDeg" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetUni" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="SmartDegreeModelStoreContainer">
+          <EntitySet Name="tblAdmin" EntityType="Self.tblAdmin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDegree" EntityType="Self.tblDegree" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSignUp" EntityType="Self.tblSignUp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUni" EntityType="Self.tblUni" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SmartDegreeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAdmin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDegree">
+          <Key>
+            <PropertyRef Name="Deg_ID" />
+          </Key>
+          <Property Name="Deg_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Deg_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Duration" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fee" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Uni_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblUni">
+          <Key>
+            <PropertyRef Name="Uni_ID" />
+          </Key>
+          <Property Name="Uni_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Uni_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Campus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="No_Of_Dept" Type="Int32" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="SmartDegreeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAdmins" EntityType="Self.tblAdmin" />
+          <EntitySet Name="tblDegrees" EntityType="Self.tblDegree" />
+          <EntitySet Name="tblUnis" EntityType="Self.tblUni" />
+          <FunctionImport Name="AdminLogin" ReturnType="Collection(SmartDegreeModel.AdminLogin_Result)">
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tblSignUps" EntityType="SmartDegreeModel.tblSignUp" />
+          <FunctionImport Name="GoUniID" ReturnType="Collection(SmartDegreeModel.GoUniID_Result)">
+          <Parameter Name="ID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteDeg">
+          <Parameter Name="D_ID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteUni">
+          <Parameter Name="U_ID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetUni" ReturnType="Collection(SmartDegreeModel.GetUni_Result)" />
+          <FunctionImport Name="GetDeg" ReturnType="Collection(SmartDegreeModel.GetDeg_Result)">
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="AdminLogin_Result">
+          <Property Type="String" Name="AdminID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <EntityType Name="tblSignUp">
+          <Key>
+            <PropertyRef Name="User_Name" />
+          </Key>
+          <Property Name="Full_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="User_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="GoUniID_Result">
+          <Property Type="String" Name="Uni_ID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Uni_Name" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Campus" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="No_Of_Dept" Nullable="false" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetUni_Result">
+          <Property Type="String" Name="Uni_ID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Uni_Name" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Campus" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="No_Of_Dept" Nullable="false" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetDeg_Result">
+          <Property Type="String" Name="Deg_ID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Deg_Name" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Duration" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="Fee" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Uni_Name" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="500" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SmartDegreeModelStoreContainer" CdmEntityContainer="SmartDegreeEntities">
+          <EntitySetMapping Name="tblAdmins">
+            <EntityTypeMapping TypeName="SmartDegreeModel.tblAdmin">
+              <MappingFragment StoreEntitySet="tblAdmin">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDegrees">
+            <EntityTypeMapping TypeName="SmartDegreeModel.tblDegree">
+              <MappingFragment StoreEntitySet="tblDegree">
+                <ScalarProperty Name="Deg_ID" ColumnName="Deg_ID" />
+                <ScalarProperty Name="Deg_Name" ColumnName="Deg_Name" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
+                <ScalarProperty Name="Uni_Name" ColumnName="Uni_Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUnis">
+            <EntityTypeMapping TypeName="SmartDegreeModel.tblUni">
+              <MappingFragment StoreEntitySet="tblUni">
+                <ScalarProperty Name="Uni_ID" ColumnName="Uni_ID" />
+                <ScalarProperty Name="Uni_Name" ColumnName="Uni_Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Campus" ColumnName="Campus" />
+                <ScalarProperty Name="No_Of_Dept" ColumnName="No_Of_Dept" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AdminLogin" FunctionName="SmartDegreeModel.Store.AdminLogin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartDegreeModel.AdminLogin_Result">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tblSignUps">
+            <EntityTypeMapping TypeName="SmartDegreeModel.tblSignUp">
+              <MappingFragment StoreEntitySet="tblSignUp">
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteDeg" FunctionName="SmartDegreeModel.Store.DeleteDeg" />
+          <FunctionImportMapping FunctionImportName="DeleteUni" FunctionName="SmartDegreeModel.Store.DeleteUni" />
+          <FunctionImportMapping FunctionImportName="GetUni" FunctionName="SmartDegreeModel.Store.GetUni">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartDegreeModel.GetUni_Result">
+                <ScalarProperty Name="Uni_ID" ColumnName="Uni_ID" />
+                <ScalarProperty Name="Uni_Name" ColumnName="Uni_Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Campus" ColumnName="Campus" />
+                <ScalarProperty Name="No_Of_Dept" ColumnName="No_Of_Dept" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetDeg" FunctionName="SmartDegreeModel.Store.GetDeg">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartDegreeModel.GetDeg_Result">
+                <ScalarProperty Name="Deg_ID" ColumnName="Deg_ID" />
+                <ScalarProperty Name="Deg_Name" ColumnName="Deg_Name" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
+                <ScalarProperty Name="Uni_Name" ColumnName="Uni_Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram DiagramId="44b71fb92fec4311a3e7f2ff14bcb23d" Name="Diagram1">
+        <EntityTypeShape EntityType="SmartDegreeModel.tblAdmin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartDegreeModel.tblDegree" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartDegreeModel.tblUni" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartDegreeModel.tblSignUp" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
