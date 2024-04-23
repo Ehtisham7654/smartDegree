@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartDegreeChoice", "SmartDegreeChoice\SmartDegreeChoice.csproj", "{8F85D87B-AD89-42C3-A5CA-BFCE5AAF6DAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F85D87B-AD89-42C3-A5CA-BFCE5AAF6DAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F85D87B-AD89-42C3-A5CA-BFCE5AAF6DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F85D87B-AD89-42C3-A5CA-BFCE5AAF6DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F85D87B-AD89-42C3-A5CA-BFCE5AAF6DAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DD97969C-1D08-48D2-B555-5851FC743FFE}
+	EndGlobalSection
+EndGlobal
